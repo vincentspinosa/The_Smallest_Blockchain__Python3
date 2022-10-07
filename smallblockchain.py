@@ -44,3 +44,4 @@ Main = Blockchain()
 print(f"{Main.count_blocks()} Blocks\n")
 
 Main.print_blockchain()
+
