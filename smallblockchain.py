@@ -1,14 +1,17 @@
+from datetime import datetime
+
 class Block:
   def __init__(self, chain):
     x = len(chain.blocks)
     self.id = 0 if x < 1 else x
     self.name = 'Block ' + str(self.id)
+    self.creation_date = datetime.now()
     self.prev = self.id - 1 if self.id > 0 else None
     self.next = None
     return None
 
   def __repr__(self):
-    return f"Id : {self.id}, Name : {self.name}, Previous : {self.prev}, Next : {self.next}"
+    return f"Id: {self.id}, Name: {self.name}, Creation: {self.creation_date}, Previous: {self.prev}, Next: {self.next}"
 
 
 class New_Block:
@@ -20,7 +23,7 @@ class New_Block:
     return None
 
   def __repr__(self):
-    return f"Id : {self.newBlock.id}, Name : {self.newBlock.name}, Previous : {self.newBlock.prev}, Next : {self.newBlock.next}"
+    return f"Id: {self.newBlock.id}, Name: {self.newBlock.name}, Creation: {self.newBlock.creation_date}, Previous: {self.newBlock.prev}, Next: {self.newBlock.next}"
 
 
 class Blockchain:
@@ -44,4 +47,3 @@ Main = Blockchain()
 print(f"{Main.count_blocks()} Blocks\n")
 
 Main.print_blockchain()
-
