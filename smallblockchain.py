@@ -22,8 +22,8 @@ class New_Block:
       chain.blocks[self.newBlock.prev].next = self.newBlock.id
     return None
 
-  def __repr__(self):
-    return f"Id: {self.newBlock.id}, Name: {self.newBlock.name}, Creation: {self.newBlock.creation_date}, Previous: {self.newBlock.prev}, Next: {self.newBlock.next}"
+  def __repr__(self, chain):
+    return True if chain.blocks[self.newBlock.prev].next == self.newBlock.id else False
 
 
 class Blockchain:
@@ -42,8 +42,11 @@ class Blockchain:
     return None
 
 
-Main = Blockchain()
+def main():
+  Main = Blockchain()
+  print(f"{Main.count_blocks()} Blocks\n")
+  Main.print_blockchain()
+  return None
 
-print(f"{Main.count_blocks()} Blocks\n")
 
-Main.print_blockchain()
+__BLOCKCHAIN__ = main()
